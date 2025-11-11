@@ -38,27 +38,27 @@ luviaai/
 
 ## 🚀 How to Run
 
-### Method 1: Direct Browser Opening (Simplest)
+### Method 1: Direct Browser Opening (Simplest - Recommended)
 
-1. **Save the HTML file**
-   ```bash
-   # Create project directory
-   mkdir luviaai
-   cd luviaai
-   
-   # Save the index.html file in this directory
-   ```
+1. **Locate the file**
+   - Navigate to the project directory where `index.html` is located
 
 2. **Open in browser**
-   - Double-click `index.html`
-   - OR right-click → "Open with" → Choose your browser
-   - Works in Chrome, Firefox, Safari, Edge
+   - **Double-click** `index.html` to open it directly in your default browser
+   - **OR** right-click `index.html` → select "Open with" → Choose your preferred browser (Chrome, Firefox, Safari, Edge)
 
-3. **That's it!** No server, no npm install, no dependencies.
+3. **That's it!** The application will load immediately with no server, npm install, or dependencies required.
 
-### Method 2: Local Server (Recommended for Demo)
+**Note:** The application is a completely self-contained single HTML file. All JavaScript (React), CSS (Tailwind), and assets are loaded from CDNs, making it instantly runnable.
+
+### Method 2: Local Development Server (Optional)
+
+If you prefer running via a local server for testing purposes:
 
 ```bash
+# Navigate to project directory
+cd /path/to/luviaai
+
 # Using Python 3
 python -m http.server 8000
 
@@ -67,9 +67,24 @@ python -m SimpleHTTPServer 8000
 
 # Using Node.js (if you have it)
 npx http-server -p 8000
+
+# Using PHP (if you have it)
+php -S localhost:8000
 ```
 
-Then open: `http://localhost:8000`
+Then open: `http://localhost:8000` in your browser
+
+### Troubleshooting
+
+**If the page doesn't load or appears blank:**
+1. Check browser console for errors (F12 → Console tab)
+2. Ensure you have an active internet connection (required for CDN resources)
+3. Try a different browser (Chrome recommended)
+4. Clear browser cache and reload (Ctrl+Shift+R or Cmd+Shift+R)
+
+**If styling looks broken:**
+- Wait a few seconds for Tailwind CSS to load from the CDN
+- Check that the CDN URLs in the HTML file are accessible
 
 ---
 
