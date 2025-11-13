@@ -1,4 +1,4 @@
-# 🌟 Carely
+# 🌟 Carely - Intelligent Care, Personalized Health
 
 > Your personal AI health companion for a balanced, healthier life
 
