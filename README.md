@@ -1,392 +1,176 @@
-# LuviaAI - Intelligent Care, Personalized Health
+# 🌟 Carely
 
-> AI-powered personalized health advice generator using LLM fine-tuning with few-shot learning
+> Your personal AI health companion for a balanced, healthier life
 
-![LuviaAI Banner](https://img.shields.io/badge/AI-Health_Advisor-red?style=for-the-badge)
-![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge)
-![Claude](https://img.shields.io/badge/Claude-Sonnet_4-purple?style=for-the-badge)
-
----
-
-## 🎯 Project Overview
-
-**LuviaAI** is an intelligent health advisory system that provides contextually appropriate lifestyle and diet recommendations based on individual patient profiles. Using Claude Sonnet 4 with few-shot learning, it generates personalized advice across four key health dimensions: Diet, Exercise, Sleep, and Stress Management.
-
-### Key Features
-
-- 🤖 **AI-Powered Recommendations** - Uses Claude Sonnet 4 with few-shot learning
-- 🎨 **Elegant Dark/Light Theme** - Montserrat & Raleway typography with red accents
-- 📊 **Confidence Scoring** - Transparency in AI recommendations (85-95% confidence)
-- 🧠 **Reasoning Display** - Expandable "Why this advice?" sections
-- 💯 **Personalization Score** - Visual indicator of recommendation tailoring
-- ⚕️ **Safety First** - Professional medical disclaimers
-- 📱 **Fully Responsive** - Works seamlessly across all devices
+[![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
+[![Powered by TypeScript](https://img.shields.io/badge/Powered%20by-TypeScript-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Styled with Tailwind](https://img.shields.io/badge/Styled%20with-Tailwind-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
 ---
 
-## 📁 Project Structure
+## 💡 What is Carely?
 
-```
-luviaai/
-├── index.html          # Complete standalone application
-└── README.md          # This file
-```
+Carely is more than just another health app—it's your intelligent wellness companion that understands **you**. By combining cutting-edge AI technology with a holistic approach to health, Carely crafts personalized wellness plans that fit seamlessly into your lifestyle.
 
-**That's it!** Single-file architecture for maximum simplicity.
+Whether you're looking to improve your sleep, manage stress, build better eating habits, or kickstart a fitness routine, Carely analyzes your unique profile and delivers actionable insights across four pillars of wellness: **Diet, Exercise, Sleep, and Stress Management**.
 
 ---
 
-## 🚀 How to Run
+## ✨ Key Features
 
-### Method 1: Direct Browser Opening (Simplest - Recommended)
+### 🧬 **Comprehensive Health Profiling**
+Build your complete health snapshot with:
+- **Personal metrics**: Age, gender, weight, height, BMI
+- **Lifestyle insights**: Activity level, sleep quality, stress indicators, work-life balance
+- **Health tracking**: Medical conditions, alcohol/smoking habits, and custom health goals
 
-1. **Locate the file**
-   - Navigate to the project directory where `index.html` is located
+### 🤖 **AI-Powered Personalization**
+Our intelligent recommendation engine analyzes your profile to generate:
+- Tailored nutrition advice
+- Custom workout plans
+- Sleep optimization strategies
+- Stress management techniques
 
-2. **Open in browser**
-   - **Double-click** `index.html` to open it directly in your default browser
-   - **OR** right-click `index.html` → select "Open with" → Choose your preferred browser (Chrome, Firefox, Safari, Edge)
+### 📊 **Smart Progress Tracking**
+Watch your wellness journey unfold with:
+- Weight tracking over time
+- Sleep pattern analysis
+- Mood logging with visual trends
+- Saved plan history with motivational titles
 
-3. **That's it!** The application will load immediately with no server, npm install, or dependencies required.
+### 📱 **Interactive Health Tools**
+- **BMI Calculator**: Supports multiple units (cm/in/ft and kg/lbs) with instant feedback
+- **Visual Charts**: Beautiful data visualization powered by Recharts
+- **PDF Export**: Download professional health plans to share with your doctor
 
-**Note:** The application is a completely self-contained single HTML file. All JavaScript (React), CSS (Tailwind), and assets are loaded from CDNs, making it instantly runnable.
-
-### Method 2: Local Development Server (Optional)
-
-If you prefer running via a local server for testing purposes:
-
-```bash
-# Navigate to project directory
-cd /path/to/luviaai
-
-# Using Python 3
-python -m http.server 8000
-
-# Using Python 2
-python -m SimpleHTTPServer 8000
-
-# Using Node.js (if you have it)
-npx http-server -p 8000
-
-# Using PHP (if you have it)
-php -S localhost:8000
-```
-
-Then open: `http://localhost:8000` in your browser
-
-### Troubleshooting
-
-**If the page doesn't load or appears blank:**
-1. Check browser console for errors (F12 → Console tab)
-2. Ensure you have an active internet connection (required for CDN resources)
-3. Try a different browser (Chrome recommended)
-4. Clear browser cache and reload (Ctrl+Shift+R or Cmd+Shift+R)
-
-**If styling looks broken:**
-- Wait a few seconds for Tailwind CSS to load from the CDN
-- Check that the CDN URLs in the HTML file are accessible
+### 🎨 **Beautiful, Modern Interface**
+- Sleek dark theme with energizing blue accents
+- Fully responsive design for any device
+- Intuitive top-right navigation
+- Thoughtfully positioned footer
 
 ---
 
-## 💻 Technology Stack
+## 🛠️ Tech Stack
 
-| Component | Technology |
-|-----------|-----------|
-| **Frontend** | React 18 (via CDN) |
-| **Styling** | Tailwind CSS (JIT via CDN) |
-| **Icons** | Lucide React (inline SVG) |
-| **AI Model** | Claude Sonnet 4 (API) |
-| **Fonts** | Montserrat, Raleway (Google Fonts) |
-| **Architecture** | Single-page application (SPA) |
+**Frontend Magic:**
+- ⚛️ **React** - Dynamic UI components
+- ⚡ **Vite** - Lightning-fast builds
+- 🎨 **Tailwind CSS** - Modern, utility-first styling
+- 📘 **TypeScript** - Type-safe development
+- 📈 **Recharts** - Stunning data visualizations
+- 📄 **jsPDF** - Professional PDF generation
 
-**No build tools required!** Everything runs in the browser.
-
----
-
-## 🎨 Design Specifications
-
-### Color Palette
-
-#### Dark Theme (Default)
-- Background: `#0F1419`
-- Cards: `#1A1F2E`
-- Text: `#E5E7EB`
-- Accent: `#EF4444` (Red)
-- Secondary: `#6366F1` (Indigo)
-
-#### Light Theme
-- Background: `#FFFFFF`
-- Cards: `#F9FAFB`
-- Text: `#1F2937`
-- Accent: `#DC2626` (Red)
-- Secondary: `#4F46E5` (Indigo)
-
-### Typography
-- **Headings**: Montserrat (600-700 weight)
-- **Body Text**: Raleway (400-500 weight)
-- **Special**: Monospace for metrics
+**Backend Power:**
+- 🟢 **Node.js** - JavaScript runtime
+- 🚂 **Express** - Fast, minimalist web framework
 
 ---
 
-## 📊 Features Breakdown
+## 🚀 Getting Started
 
-### 1. Patient Profile Input
-- **Demographics**: Age, gender, weight, height
-- **Activity Level**: Sedentary to Very Active
-- **Sleep Tracking**: Hours per night
-- **Medical Conditions**: Multi-select (7 common conditions)
-- **Diet Preferences**: Vegetarian, Vegan, Keto, Paleo, etc.
-- **Health Goals**: Weight loss, muscle gain, better sleep, etc.
+### Prerequisites
 
-### 2. AI Recommendation Engine
+Ensure you have the latest version of npm installed:
 
-**Few-Shot Learning Examples** (Built-in):
-- Example 1: 28F with diabetes seeking weight loss
-- Example 2: 45M with hypertension focusing on heart health
-- Example 3: 35F with PCOS (vegetarian) wanting better energy
+```sh
+npm install npm@latest -g
+```
 
-**Output Categories**:
-1. 🍎 **Diet & Nutrition** - Personalized meal plans
-2. 💪 **Exercise & Fitness** - Activity recommendations
-3. 😴 **Sleep & Recovery** - Sleep hygiene tips
-4. 🧘 **Stress Management** - Mental wellness strategies
+### Installation
 
-### 3. Novel Features
+1️⃣ **Clone the repository**
+```sh
+git clone https://github.com/your_username_/Carely.git
+cd Carely
+```
 
-- **Confidence Scoring**: Each recommendation shows 85-95% confidence
-- **Reasoning Transparency**: Expandable sections explaining "why"
-- **Personalization Score**: Overall metric (0-100%)
-- **BMI Auto-calculation**: Computed from height/weight
-- **Theme Toggle**: Smooth dark/light mode switching
+2️⃣ **Install dependencies**
+```sh
+npm install
+```
+
+3️⃣ **Start the backend server** ⚠️ *IMPORTANT*
+
+Open a terminal and run:
+```sh
+cd backend
+npm start
+```
+
+The backend server will start running (typically on `http://localhost:3000`)
+
+4️⃣ **Launch the frontend** ⚠️ *IMPORTANT*
+
+Open a **separate terminal** and run:
+```sh
+npm run dev
+```
+
+5️⃣ **Open your browser**
+
+Navigate to `http://localhost:5173` and start your wellness journey! 🎉
+
+> **💡 Pro Tip:** Both the backend and frontend must be running simultaneously for the app to function properly. Keep both terminal windows open!
 
 ---
 
-## 🎭 Demo Flow
+## 📸 Screenshots
 
-```
-┌─────────────────┐
-│   Disclaimer    │  (Medical safety notice)
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  Profile Form   │  (Patient information input)
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  AI Processing  │  (Claude API + Few-shot learning)
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Results Display │  (4 category cards + summary)
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  New Profile    │  (Reset and try again)
-└─────────────────┘
-```
+*Coming soon - Experience the beautiful interface yourself by running the app!*
 
 ---
 
-## 🧪 Test Scenarios
+## 🎯 Project Roadmap
 
-### Scenario 1: Young Diabetic
-```
-Age: 28, Female
-BMI: 32 (75kg, 165cm)
-Activity: Sedentary
-Condition: Diabetes
-Goal: Weight Loss
-```
-
-### Scenario 2: Hypertensive Professional
-```
-Age: 45, Male
-BMI: 27 (80kg, 175cm)
-Activity: Moderate
-Condition: Hypertension
-Goal: Heart Health
-```
-
-### Scenario 3: PCOS Vegetarian
-```
-Age: 35, Female
-BMI: 22 (60kg, 165cm)
-Activity: Active
-Condition: PCOS
-Diet: Vegetarian
-Goal: Better Energy
-```
+- [ ] Mobile app (React Native)
+- [ ] Integration with wearable devices
+- [ ] Community features and challenges
+- [ ] Nutrition database with meal planning
+- [ ] Telemedicine consultation booking
 
 ---
 
-## 🔒 Safety & Ethics
+## 👥 Meet the Team
 
-### Medical Disclaimers
-- ⚠️ **Not medical advice** - Informational only
-- 👨‍⚕️ **Consult professionals** - Always seek qualified healthcare providers
-- 🚨 **Emergency situations** - Call emergency services immediately
-- 📋 **Legal compliance** - User acknowledgment required
+Built with ❤️ by a passionate team of developers:
 
-### Data Privacy
-- ✅ No data stored on servers
-- ✅ No user tracking or analytics
-- ✅ All processing client-side
-- ✅ API calls encrypted (HTTPS)
+- **Midde Prerana**
+- **N M Bhavana**
+- **Pranav Vinod Pillai**
+- **R S Chiraag**
+- **Rishika Talasila**
 
 ---
 
-## 🎓 Technical Innovation
+## 🤝 Contributing
 
-### Why Few-Shot Learning?
+We welcome contributions! Whether it's a bug fix, new feature, or documentation improvement, we'd love to see your pull requests.
 
-Instead of traditional fine-tuning (which requires):
-- Large datasets (1000+ examples)
-- Expensive GPU compute
-- Days of training time
-- Model hosting infrastructure
-
-We use **Few-Shot Learning**:
-- 3-5 curated examples
-- Real-time inference via API
-- Instant deployment
-- Cost-effective ($0.01-0.05 per recommendation)
-
-### Architecture Benefits
-
-```javascript
-// Traditional approach
-Dataset → Training → Fine-tuned Model → Hosting → Inference
-
-// Our approach  
-Few Examples + Patient Data → Claude API → Instant Results
-```
-
-**Result**: 90%+ accuracy with 1% of the effort!
-
----
-
-## 📈 Performance Metrics
-
-- **Load Time**: <2 seconds (CDN-cached)
-- **API Response**: 3-5 seconds
-- **Confidence Score**: 85-95% average
-- **Personalization Score**: 88-94% average
-- **Form Validation**: Real-time
-- **Theme Switch**: <300ms transition
-
----
-
-## 🎤 Presentation Talking Points
-
-### 1. Problem Statement (30 sec)
-"Generic health advice doesn't work. People need personalized recommendations based on their unique profiles, conditions, and goals."
-
-### 2. Solution (1 min)
-"LuviaAI uses AI with few-shot learning to generate tailored health advice across diet, exercise, sleep, and stress management - with confidence scoring and transparent reasoning."
-
-### 3. Technical Innovation (1 min)
-"Instead of expensive model fine-tuning, we use few-shot learning with Claude Sonnet 4, achieving 90%+ personalization scores with just 3 examples."
-
-### 4. Demo (3 min)
-- Show profile creation
-- Highlight validation
-- Display AI processing
-- Reveal results with confidence scores
-- Expand reasoning sections
-- Toggle theme
-
-### 5. Impact & Future (1 min)
-"LuviaAI makes personalized health guidance accessible. Future: wearable integration, progress tracking, multi-language support."
-
----
-
-## 🛠️ Customization Guide
-
-### Change Brand Colors
-```javascript
-// In index.html, search and replace:
-'red-500' → 'blue-500'    // Primary accent
-'red-600' → 'blue-600'    // Hover states
-'red-900' → 'blue-900'    // Dark gradients
-```
-
-### Add More Conditions
-```javascript
-const conditions = [
-  'Diabetes', 
-  'Hypertension',
-  'Your New Condition' // Add here
-];
-```
-
-### Modify Few-Shot Examples
-```javascript
-const fewShotExamples = `
-Example 4:
-Patient: Your custom example
-Diet: Custom diet advice
-// Add more examples here
-`;
-```
-
----
-
-## ❓ FAQ
-
-**Q: Do I need API keys?**  
-A: The app is configured to work without explicit API keys in the artifact environment.
-
-**Q: Is this production-ready?**  
-A: This is a demo/prototype. For production, add proper API authentication, error handling, and data validation.
-
-**Q: Can I use other AI models?**  
-A: Yes! Replace the API endpoint and adjust the prompt format for GPT-4, Gemini, etc.
-
-**Q: How accurate are the recommendations?**  
-A: Based on established medical guidelines. Confidence scores reflect pattern matching from few-shot examples.
-
-**Q: Can I save my results?**  
-A: Currently no. Future version could add PDF export or browser local storage.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
 ## 📝 License
 
-Educational/Research Use - Not for Medical Diagnosis
+This project is open source and available for educational purposes.
 
 ---
 
-## 👥 Contributors
+## 💬 Support
 
-**Project Team**: [Your Team Name]  
-**Course**: GenAI Project  
-**Date**: November 2025
+Having trouble? Feel free to open an issue or reach out to the team!
 
 ---
 
-## 🌟 Acknowledgments
+<div align="center">
 
-- Claude AI (Anthropic) - LLM capabilities
-- Tailwind CSS - Styling framework
-- Lucide - Icon library
-- Google Fonts - Typography
+**⭐ Star this repo if Carely helped you on your wellness journey! ⭐**
 
----
+Made with 💙 and lots of ☕
 
-## 📞 Support
-
-For issues or questions:
-1. Check this README
-2. Review code comments in `index.html`
-3. Test with provided scenarios
-4. Contact: [Your Contact Info]
-
----
-
-**Built with ❤️ and AI**
-
-*LuviaAI - Intelligent Care, Personalized Health*
+</div>
