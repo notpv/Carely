@@ -36,7 +36,7 @@ app.post('/api/generate-plan', async (req, res) => {
   console.log('Received user data:', userData);
 
   try {
-    const model = await getModel(['gemini-3-pro', 'gemini-2.5-pro', 'gemini-2.5-flash']);
+    const model = await getModel(['gemini-2.5-pro', 'gemini-2.5-flash']);
 
     const prompt = `
       Based on the following user data, generate a personalized wellness plan.
@@ -90,11 +90,19 @@ app.post('/api/generate-plan', async (req, res) => {
     const response = await result.response;
     const text = await response.text();
 
+    console.log('Gemini API response text:', text);
+
     // The Gemini API will return a string, so we need to parse it as JSON.
-    // I'll also add a check to make sure the response is valid JSON.
+    // The response is often wrapped in a markdown block, so we need to extract it.
     let plan;
     try {
-      plan = JSON.parse(text);
+      const jsonMatch = text.match(/```json\n([\s\S]*)\n```/);
+      if (jsonMatch && jsonMatch[1]) {
+        plan = JSON.parse(jsonMatch[1]);
+      } else {
+        // If the markdown block is not found, try to parse the whole text.
+        plan = JSON.parse(text);
+      }
     } catch (e) {
       console.error('Failed to parse Gemini API response as JSON:', text);
       throw new Error('The AI generated an invalid response. Please try again.');
@@ -103,7 +111,9 @@ app.post('/api/generate-plan', async (req, res) => {
 
     res.json(plan);
   } catch (error) {
-    console.error('Failed to generate plan from Gemini API:', error);
+    console.error('--- Full Gemini API Error ---');
+    console.error(error);
+    console.error('--- End of Full Gemini API Error ---');
     res.status(500).json({ details: 'Failed to generate plan from AI. Please check the backend logs for more details.' });
   }
 });

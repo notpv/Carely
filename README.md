@@ -6,6 +6,19 @@ Here's a summary of the changes made:
 - Created `server.js` with a basic Express server listening on port 3000.
 - Installed all necessary dependencies for the backend.
 
+## Backend Configuration
+
+Before running the backend server, you need to create a `.env` file in the `backend` directory. This file will store your Gemini API key.
+
+1.  Create a file named `.env` in the `backend` directory.
+2.  Add the following line to the `.env` file:
+
+    ```
+    GEMINI_API_KEY=your_api_key_here
+    ```
+
+    Replace `your_api_key_here` with your actual Gemini API key.
+
 To run the application, please follow these steps from your project's root directory:
 
 1.  **Start the backend server:**

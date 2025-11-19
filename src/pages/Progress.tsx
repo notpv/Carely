@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getProgress, saveProgressEntry } from '../lib/storage';
+import { getProgress, saveProgressEntry, clearProgress } from '../lib/storage';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const ProgressPage = () => {
@@ -19,6 +19,13 @@ const ProgressPage = () => {
       saveProgressEntry(entry);
       setProgress(getProgress());
       setEntry({ weight: '', sleep: '', mood: '3' });
+    }
+  };
+
+  const handleClearProgress = () => {
+    if (window.confirm('Are you sure you want to clear all your progress data? This action cannot be undone.')) {
+      clearProgress();
+      setProgress([]);
     }
   };
 
@@ -83,6 +90,12 @@ const ProgressPage = () => {
                   Save Entry
                 </button>
               </form>
+            </div>
+            <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">Manage Data</h2>
+                <button onClick={handleClearProgress} className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md">
+                    Clear All Progress
+                </button>
             </div>
         </div>
       </div>

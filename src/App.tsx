@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer'; // Moved to top
@@ -9,27 +9,21 @@ import ProgressPage from './pages/Progress';
 import ResourcesPage from './pages/Resources';
 import AboutPage from './pages/About';
 import Disclaimer from './components/Disclaimer';
-import { getUser, saveUser } from './lib/storage';
+import { getUser, saveUser } from './lib/storage.ts';
+import type { User } from './lib/storage.ts';
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [showDisclaimer, setShowDisclaimer] = useState(!getUser());
-
-  useEffect(() => {
-    const existingUser = getUser();
-    if (existingUser) {
-      setUser(existingUser);
-    }
-  }, []);
+  const [user, setUser] = useState<User | null>(getUser());
+  const [showDisclaimer, setShowDisclaimer] = useState(!user);
 
   const handleDisclaimerAccept = () => {
-    const newUser = { name: 'User', createdAt: new Date().toISOString() };
+    const newUser: User = { name: 'User', createdAt: new Date().toISOString() };
     setUser(newUser);
     saveUser(newUser);
     setShowDisclaimer(false);
   };
 
-  const handleUserUpdate = (formData) => {
+  const handleUserUpdate = (formData: User) => {
     const updatedUser = { ...user, ...formData };
     setUser(updatedUser);
     saveUser(updatedUser);
