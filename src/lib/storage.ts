@@ -1,6 +1,7 @@
 const USER_KEY = 'carely_user';
 const HISTORY_KEY = 'carely_history';
 const PROGRESS_KEY = 'carely_progress';
+const MEDITATION_KEY = 'carely_meditations';
 
 export interface User {
     name?: string;
@@ -34,6 +35,17 @@ export interface ProgressEntry {
     weight: string | number;
     sleep: string | number;
     mood: string | number;
+    date: string;
+}
+
+export interface MeditationEntry {
+    title: string;
+    stressSource: string;
+    mood: string;
+    type: string;
+    duration: string;
+    script: string;
+    audioUrl?: string;
     date: string;
 }
 
@@ -72,4 +84,22 @@ export const getProgress = (): ProgressEntry[] => {
 
 export const clearProgress = (): void => {
     localStorage.removeItem(PROGRESS_KEY);
+};
+
+// Meditation Storage Functions
+export const saveMeditation = (meditation: Omit<MeditationEntry, 'date'>): void => {
+    const meditations = getMeditationHistory();
+    meditations.unshift({ ...meditation, date: new Date().toISOString() });
+    // Keep only the last 20 meditations
+    const trimmed = meditations.slice(0, 20);
+    localStorage.setItem(MEDITATION_KEY, JSON.stringify(trimmed));
+};
+
+export const getMeditationHistory = (): MeditationEntry[] => {
+    const meditations = localStorage.getItem(MEDITATION_KEY);
+    return meditations ? JSON.parse(meditations) : [];
+};
+
+export const clearMeditationHistory = (): void => {
+    localStorage.removeItem(MEDITATION_KEY);
 };
